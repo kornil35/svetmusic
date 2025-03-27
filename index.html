@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Music by Mom</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="navbar">
+    <div class="container">
+      <img src="images/logo.svg" alt="Logo" class="logo" />
+      <div class="burger" id="burger">&#9776;</div>
+      <div class="nav-links" id="navLinks">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Tracks</a>
+        <a href="#">Contact</a>
+      </div>
+    </div>
+  </div>
+  
+
+  <!-- Блок с заголовком -->
+  <section class="hero-two-col">
+    <div class="hero-text">
+      <h1>Music for Special Moments</h1>
+      <p>Original tracks for weddings, celebrations, and memorable events</p>
+      <a href="#pitch" class="hero-btn" id="scrollToPitch">Learn More</a>
+    </div>
+    <div class="hero-image">
+      <img src="images/head-illustration.svg" alt="Music illustration">
+    </div>
+  </section>
+
+    <!-- Блок мини-призентацией -->
+  <section class="pitch-alt container" id="pitch">
+    <div class="pitch-row">
+      <img src="images/event1.svg" alt="Wedding">
+      <div class="pitch-text-block">
+        <h3>Wedding</h3>
+        <p>Add gentle, emotional music to your special day — from the ceremony to the celebration.</p>
+      </div>
+    </div>
+
+    <div class="pitch-row reverse">
+      <img src="images/event2.svg" alt="Party">
+      <div class="pitch-text-block">
+        <h3>Party</h3>
+        <p>Our tracks bring life to any celebration — birthdays, anniversaries, or cozy gatherings with friends.</p>
+      </div>
+    </div>
+
+    <div class="pitch-row">
+      <img src="images/event3.svg" alt="Video">
+      <div class="pitch-text-block">
+        <h3>Video</h3>
+        <p>Background music for slideshows, family videos, and short films — make your memories atmospheric.</p>
+      </div>
+    </div>
+  </section>
+
+    <!-- Блок с треками -->
+  <section class="tracks container" id="tracks">
+    <h2>Demo Tracks</h2>
+
+    <div class="track-list">
+      <div class="track-card">
+        <h3>Bright Day</h3>
+        <p>Wedding composition</p>
+        <audio controls>
+          <source src="tracks/wedding.mp3" type="audio/mpeg" />
+          Your browser does not support audio playback.
+        </audio>
+        <button>Buy</button>
+      </div>
+
+      <div class="track-card">
+        <h3>Christmas Evening</h3>
+        <p>Holiday melody</p>
+        <audio controls>
+          <source src="tracks/christmas-eve.mp3" type="audio/mpeg" />
+        </audio>
+        <button>Buy</button>
+      </div>
+
+      <div class="track-card">
+        <h3>Wonder Day</h3>
+        <p>Birthday melody</p>
+        <audio controls>
+          <source src="tracks/prayer.mp3" type="audio/mpeg" />
+        </audio>
+        <button>Buy</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Блок с отзывами -->
+  <section class="testimonials">
+    <h2>What People Say</h2>
+    <div class="testimonial-list">
+      <div class="testimonial-card">
+        <p>"The music was absolutely perfect for our wedding. It made the ceremony even more emotional!"</p>
+        <span>— Emily R.</span>
+      </div>
+      <div class="testimonial-card">
+        <p>"I used one of the tracks for a birthday video. It added such a special vibe to the whole thing."</p>
+        <span>— James T.</span>
+      </div>
+      <div class="testimonial-card">
+        <p>"High-quality music that fits perfectly for any event. Highly recommend!"</p>
+        <span>— Sofia M.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- F.A.Q Блок -->
+  <section class="faq-section">
+    <h2 class="section-title">F.A.Q</h2>
+
+    <div class="faq-item">
+      <button class="faq-question">What formats are the tracks delivered in?</button>
+      <div class="faq-answer">All tracks are delivered in high-quality MP3 and WAV formats.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">Can I use the tracks for any purpose, and are they copyright-free?</button>
+      <div class="faq-answer">Yes — once you purchase a track, it’s entirely yours. You can use it however you want, with no copyright issues or limitations.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">Do you take custom music requests?</button>
+      <div class="faq-answer">Absolutely! We work on custom projects as well — feel free to reach out through the contact form.</div>
+    </div>
+  </section>
+
+  <!-- Кнопка открытия модального окна -->
+  <h2 class="contact-title">Get in Touch</h2>
+<div class="contact-button-wrapper">
+  <button id="openContactModal">Contact Us</button>
+  <div class="messenger-links">
+    <a href="https://t.me/kornil00" target="_blank" class="messenger-btn telegram">
+      Telegram
+    </a>
+    <a href="https://wa.me/9297044141" target="_blank" class="messenger-btn whatsapp">
+      WhatsApp
+    </a>
+  </div>
+  
+</div>
+
+<!-- Модальное окно -->
+<div id="contactModal" class="modal-overlay">
+  <div class="modal">
+    <span class="close-btn" id="closeModal">&times;</span>
+    <span class="back-btn" id="backToStep1">&#8592;</span>
+    <h2>Contact Us</h2>
+    <form class="modal-form" id="contactForm">
+      <!-- Шаг 1 -->
+      <div class="form-step step-1">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
+        <button type="button" id="nextBtn">Next</button>
+      </div>
+    
+      <!-- Шаг 2 -->
+      <div class="form-step step-2" style="display: none;">
+        <select name="event_type" required>
+          <option value="">What type of event?</option>
+          <option value="Wedding">Wedding</option>
+          <option value="Birthday">Birthday</option>
+          <option value="Video project">Video project</option>
+          <option value="Party">Party</option>
+          <option value="Other">Other</option>
+        </select>
+    
+        <select name="mood" required>
+          <option value="">What mood should the music convey?</option>
+          <option value="Romantic">Romantic and emotional</option>
+          <option value="Fun">Fun and energetic</option>
+          <option value="Calm">Calm and cozy</option>
+          <option value="Epic">Epic and inspiring</option>
+          <option value="Help needed">I’m not sure — need help</option>
+        </select>
+    
+        <input type="date" name="event_date" placeholder="Event Date (optional)" />
+        <input type="text" name="reference" placeholder="Link to a reference (YouTube, etc.)" />
+    
+        <label style="text-align: left; margin-top: 10px;">Do you want an exclusive custom track?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="exclusive" value="Yes" required /> Yes</label>
+          <label><input type="radio" name="exclusive" value="No" /> No</label>
+          <label><input type="radio" name="exclusive" value="Not sure" /> Not sure</label>
+        </div>
+
+        <div id="customTrackDetails" style="display: none; margin-top: 12px;">
+          <textarea name="custom_details" rows="4" placeholder="Tell us about your custom track request — who is it for, what mood, instruments, or any ideas you have..."></textarea>
+        </div>
+    
+        <button type="submit">Submit</button>
+      </div>
+    </div> <!-- конец .modal -->
+
+  </div> <!-- конец .modal-overlay -->
+  <!-- ✅ ВНЕ модалки -->
+<div id="successToast" class="toast">Thank you! Your message has been sent 🎉</div>
+<script src="script.js"></script>
+    </form>
+
+    
+    
+    
+
+
+  <script src="script.js"></script>
+                    <!-- Уведомление об отправке -->
+                    <div id="successToast" class="toast">Thank you! Your message has been sent 🎉</div>
+  </div>
+</body>
+
+</html>
