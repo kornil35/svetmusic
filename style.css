@@ -140,19 +140,15 @@ body {
       text-align: center;
     }
     
-    .radio-group {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-  
+
     
   
     .burger {
       display: block;
       font-size: 26px;
       cursor: pointer;
-      margin-left: 16px;
-      margin-right: 50px;
+      margin-left: auto; /* максимально вправо */
+      margin-right: 10px; /* небольшой отступ справа */
     }
     
     .nav-links {
@@ -316,6 +312,7 @@ body {
   font-family: 'Manrope', sans-serif;
   font-weight: 600;
   cursor: pointer;
+  display: none; /* просто скрываем кнопки пока не нужны */
 }
 
 
@@ -494,7 +491,16 @@ body {
   z-index: 9999;
   justify-content: center;
   align-items: center;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px); /* для Safari */
+  background: rgba(0, 0, 0, 0.3); /* затемнение + размытие */
 }
+
+body.modal-open {
+  overflow: hidden;
+  height: 100vh;
+}
+
 
 .modal {
   background: #fff;
@@ -716,5 +722,240 @@ body {
 
 .whatsapp:hover {
   background: #1ebe5d;
+}
+
+
+
+
+@media (max-width: 768px) {
+  .modal-form input,
+  .modal-form select,
+  .modal-form textarea {
+    font-size: 0.9em;
+    padding: 10px;
+  }
+
+  .radio-group {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    width: fit-content;
+    margin-left: 20px; /* небольшой отступ слева */
+  }
+
+  .radio-group label {
+    display: grid; 
+    grid-template-columns: 20px auto;
+    align-items: center; 
+    gap: 6px;
+    width: 100%;
+  }
+
+  .radio-group input[type="radio"] {
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .radio-group label {
+    display: inline-flex; /* inline-flex вместо flex чтобы были на одной строке */
+    align-items: center;
+    gap: 6px;
+  }
+  
+  
+
+  .modal-form button[type="submit"] {
+    padding: 10px;
+    font-size: 0.9em;
+  }
+
+  .modal {
+    width: 95%;
+    padding: 20px;
+  }
+}
+
+/* подвал сайта */
+
+/* Footer */
+.footer {
+  background: #ffe7ef;
+  padding: 40px 20px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.95em;
+  color: #444;
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* ровняем элементы по верхнему краю */
+  gap: 80px; /* делаем отступ побольше */
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.footer-links, .footer-socials {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start; /* теперь все элементы ровно слева */
+}
+
+.footer-heading {
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 12px;
+  font-size: 1em;
+}
+
+.footer a {
+  text-decoration: none;
+  color: #e91e63;
+  transition: color 0.2s;
+}
+
+.footer a:hover {
+  color: #c2185b;
+}
+
+.footer-copy {
+  color: #777;
+  font-size: 0.9em;
+  margin-top: 10px;
+}
+
+.footer-logo {
+  height: 40px;
+  object-fit: contain;
+  margin-bottom: 20px;
+}
+
+
+.footer-heading {
+  width: 100%;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 8px;
+  font-size: 1em;
+}
+
+.footer-links, .footer-socials {
+  display: flex;
+  flex-direction: column; /* ставим вертикально */
+  align-items: center; /* по центру аккуратно */
+  gap: 6px; /* делаем расстояния поменьше */
+  margin-bottom: 16px;
+}
+
+#scrollToTop {
+  position: fixed;
+  bottom: 100px;
+  right: 100px;
+  background: transparent; /* убираем фон */
+  border: none;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1000;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+#scrollToTop img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+#scrollToTop.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+@media (max-width: 768px) {
+  #scrollToTop {
+    top: 12px;
+    bottom: auto;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: none;
+    padding: 0;
+    z-index: 1001;
+  }
+
+  #scrollToTop img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+@media (max-width: 768px) {
+  .modal {
+    width: 90vw;
+    padding: 20px;
+    max-width: 100%;
+    border-radius: 12px;
+  }
+
+  .modal-form input,
+  .modal-form textarea,
+  .modal-form select {
+    font-size: 1em;
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+.modal-form {
+  padding-bottom: 40px; /* добавляем безопасный отступ */
+}
+
+.modal {
+  max-height: 90vh; /* ограничиваем по высоте экрана */
+  overflow-y: auto; /* включаем вертикальный скролл */
+}
+
+
+/* Копирование email в буфер обмена и отображение подсказки */
+/* Добавляем стиль для кнопки копирования email и подсказки */
+.email-copy-wrapper {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  font-weight: 500;
+  color: #e92063;
+}
+
+.copy-tooltip {
+  position: absolute;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #e92063;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-size: 0.75em;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  white-space: nowrap;
+  z-index: 999;
+}
+
+.email-copy-wrapper.copied .copy-tooltip {
+  opacity: 1;
 }
 
