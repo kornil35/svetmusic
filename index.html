@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Music by Mom</title>
@@ -11,12 +12,15 @@
 
   <div class="navbar">
     <div class="container">
-      <img src="images/logo.svg" alt="Logo" class="logo" />
+      <a href="/">
+        <img src="images/logo.svg" alt="Logo" class="logo" />
+      </a>
       <div class="burger" id="burger">&#9776;</div>
       <div class="nav-links" id="navLinks">
         <a href="#">Home</a>
         <a href="#">About</a>
         <a href="#">Tracks</a>
+        <a href="#">Reviews</a> <!-- Вот новая ссылка -->
         <a href="#">Contact</a>
       </div>
     </div>
@@ -155,13 +159,15 @@
     <span class="close-btn" id="closeModal">&times;</span>
     <span class="back-btn" id="backToStep1">&#8592;</span>
     <h2>Contact Us</h2>
-    <form class="modal-form" id="contactForm">
+    <form class="modal-form" id="contactForm" novalidate>
+
       <!-- Шаг 1 -->
       <div class="form-step step-1">
         <input type="text" name="name" placeholder="Your Name" required />
         <input type="email" name="email" placeholder="Your Email" required />
         <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
         <button type="button" id="nextBtn">Next</button>
+        <span id="clickCount" style="margin-left: 12px; font-weight: 600;"></span>        
       </div>
     
       <!-- Шаг 2 -->
@@ -184,7 +190,8 @@
           <option value="Help needed">I’m not sure — need help</option>
         </select>
     
-        <input type="date" name="event_date" placeholder="Event Date (optional)" />
+        <input type="date" name="event_date_year_month_day" placeholder="Event Date (optional)" />
+
         <input type="text" name="reference" placeholder="Link to a reference (YouTube, etc.)" />
     
         <label style="text-align: left; margin-top: 10px;">Do you want an exclusive custom track?</label>
@@ -203,8 +210,43 @@
     </div> <!-- конец .modal -->
 
   </div> <!-- конец .modal-overlay -->
-  <!-- ✅ ВНЕ модалки -->
-<div id="successToast" class="toast">Thank you! Your message has been sent 🎉</div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <a href="/">
+        <img src="images/logo.svg" alt="Logo" class="footer-logo" />
+      </a>      
+      <div class="footer-content">
+        <div class="footer-links">
+          <p class="footer-heading">Sections</p>
+          <a href="#">Home</a>
+          <a href="#">About</a>
+          <a href="#">Tracks</a>
+          <a href="#">Reviews</a>
+          <a href="#">FAQ</a>
+          <a href="#">Contact</a>
+        </div>
+        <div class="footer-socials">
+          <p class="footer-heading">Contacts</p>
+          <a href="https://t.me/kornil00" target="_blank">Telegram</a>
+          <a href="https://wa.me/9297044141" target="_blank">WhatsApp</a>
+          
+  <!-- Контактная форма с кнопкой "Скопировать" -->
+  <div class="email-copy-wrapper">
+    <span id="copyEmail" class="copy-email">kornillit555@gmail.com</span>
+    <span id="copyTooltip" class="copy-tooltip">Copied ✅</span>
+  </div>
+  
+        </div>
+      </div>
+      <p class="footer-copy">&copy; 2025 Music by Mom. All rights reserved.</p>
+    </div>
+  </footer>
+
+  
+  
+
 <script src="script.js"></script>
     </form>
 
@@ -213,10 +255,17 @@
     
 
 
-  <script src="script.js"></script>
-                    <!-- Уведомление об отправке -->
-                    <div id="successToast" class="toast">Thank you! Your message has been sent 🎉</div>
+
+
   </div>
+                      <!-- Уведомление об отправке -->
+                      <div id="successToast" class="toast">Thank you! Your message has been sent 🎉</div>
+                      <div id="errorToast" class="toast"></div>
+                      <button id="scrollToTop" title="Back to top">
+                        <img src="images/uparrow.svg" alt="Up" />
+                      </button>
+                      
+
 </body>
 
 </html>
