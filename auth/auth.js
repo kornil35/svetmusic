@@ -26,15 +26,17 @@ document.addEventListener('DOMContentLoaded', () => {
         return
       }
 
-      const { data, error } = await supabase.auth.signUp({
-        email,
-        password,
-        options: {
-          data: {
-            username: username
-          }
-        }
-      })
+const { data, error } = await supabase.auth.signUp({
+  email,
+  password,
+  options: {
+    emailRedirectTo: 'https://kornil35.github.io/svetmusic/auth/after-confirm.html',
+    data: {
+      username: username
+    }
+  }
+})
+
 
       if (error) {
         showToast('Ошибка: ' + error.message, 'error')
