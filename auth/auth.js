@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
       })
 
       if (error) {
-        showToast('Ошибка: ' + error.message, 'error')
+        showToast('Error: ' + error.message, 'error')
       } else {
         showToast('✅ Logged in successfully!', 'success')
         loginForm.reset()
@@ -92,7 +92,7 @@ const checkEmailExists = async (email) => {
     return result.exists
     
   } catch (err) {
-    console.error('Ошибка запроса check-user:', err)
+    console.error('Check-user request error:', err)
     return false
   }
 }
