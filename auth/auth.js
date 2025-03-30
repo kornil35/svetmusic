@@ -17,12 +17,12 @@ document.addEventListener('DOMContentLoaded', () => {
       const username = form.username.value.trim()
 
       // Проверка по базе через Edge Function
-      console.log('[REGISTRATION] Проверяю почту:', email)
+      console.log('[REGISTRATION] Checking email...', email)
       const emailExists = await checkEmailExists(email)
-      console.log('[REGISTRATION] Результат:', emailExists)
+      console.log('[REGISTRATION] Result:', emailExists)
       
       if (emailExists) {
-        showToast('Эта почта уже зарегистрирована 😬', 'error')
+        showToast('This email is already in use', 'error')
         return
       }
 
@@ -41,7 +41,7 @@ const { data, error } = await supabase.auth.signUp({
       if (error) {
         showToast('Ошибка: ' + error.message, 'error')
       } else {
-        showToast('✅ Успешно! Подтверди почту по ссылке в письме', 'success')
+        showToast('Success! Please confirm your email via the link in the message', 'success')
       }
     })
   }
@@ -83,7 +83,7 @@ const checkEmailExists = async (email) => {
     })
 
     if (!res.ok) {
-      console.error('Ошибка при проверке email:', await res.text())
+      console.error('Error while verifying email:', await res.text())
       return false
     }
 
