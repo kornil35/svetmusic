@@ -17,31 +17,29 @@ document.addEventListener('DOMContentLoaded', () => {
       const username = form.username.value.trim()
 
       // Проверка по базе через Edge Function
-      console.log('[REGISTRATION] Checking email...', email)
+      console.log('[REGISTRATION] Проверяю почту:', email)
       const emailExists = await checkEmailExists(email)
-      console.log('[REGISTRATION] Result:', emailExists)
+      console.log('[REGISTRATION] Результат:', emailExists)
       
       if (emailExists) {
-        showToast('This email is already in use', 'error')
+        showToast('Эта почта уже зарегистрирована 😬', 'error')
         return
       }
 
-const { data, error } = await supabase.auth.signUp({
-  email,
-  password,
-  options: {
-    emailRedirectTo: 'https://carigoo.rent/auth/after-confirm.html',
-    data: {
-      username: username
-    }
-  }
-})
-
+      const { data, error } = await supabase.auth.signUp({
+        email,
+        password,
+        options: {
+          data: {
+            username: username
+          }
+        }
+      })
 
       if (error) {
         showToast('Ошибка: ' + error.message, 'error')
       } else {
-        showToast('Success! Please confirm your email via the link in the message', 'success')
+        showToast('✅ Успешно! Подтверди почту по ссылке в письме', 'success')
       }
     })
   }
@@ -62,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
       })
 
       if (error) {
-        showToast('Error: ' + error.message, 'error')
+        showToast('Ошибка: ' + error.message, 'error')
       } else {
         showToast('✅ Logged in successfully!', 'success')
         loginForm.reset()
@@ -83,7 +81,7 @@ const checkEmailExists = async (email) => {
     })
 
     if (!res.ok) {
-      console.error('Error while verifying email:', await res.text())
+      console.error('Ошибка при проверке email:', await res.text())
       return false
     }
 
@@ -92,7 +90,7 @@ const checkEmailExists = async (email) => {
     return result.exists
     
   } catch (err) {
-    console.error('Check-user request error:', err)
+    console.error('Ошибка запроса check-user:', err)
     return false
   }
 }
