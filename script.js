@@ -1,3 +1,4 @@
+
 // отключаем восстановление позиции скролла
 if ('scrollRestoration' in history) {
   history.scrollRestoration = 'manual'
@@ -259,8 +260,12 @@ document.addEventListener('DOMContentLoaded', () => {
 // добавляем обработку для ссылок в навигации и футере
 document.querySelectorAll('.nav-links a, .footer-links a').forEach(link => {
   link.addEventListener('click', e => {
-    e.preventDefault()
     const targetText = link.textContent.toLowerCase().trim()
+
+    // если это обычный переход (типа Sign Up), не блокируем
+    if (link.href.includes('/auth/')) return
+
+    e.preventDefault()
 
     let targetSection
     switch (targetText) {
@@ -273,7 +278,7 @@ document.querySelectorAll('.nav-links a, .footer-links a').forEach(link => {
       case 'tracks':
         targetSection = document.querySelector('.tracks')
         break
-      case 'reviews': // вот добавляем обработку
+      case 'reviews':
         targetSection = document.querySelector('.testimonials')
         break
       case 'faq':
@@ -282,8 +287,6 @@ document.querySelectorAll('.nav-links a, .footer-links a').forEach(link => {
       case 'contact':
         targetSection = document.querySelector('.contact-title')
         break
-      default:
-        targetSection = null
     }
 
     if (targetSection) {
@@ -291,6 +294,7 @@ document.querySelectorAll('.nav-links a, .footer-links a').forEach(link => {
     }
   })
 })
+
 
 
 document.addEventListener('DOMContentLoaded', () => {
