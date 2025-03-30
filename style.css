@@ -959,3 +959,44 @@ body.modal-open {
   opacity: 1;
 }
 
+
+
+
+
+/* Стили Регистрации */
+/* Общий стиль */
+.nav-auth {
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 999px;
+  transition: 0.2s;
+  margin-left: 16px;
+  text-decoration: none;
+  font-size: 0.95em;
+  margin-left: 8px !important;
+}
+
+/* Log In — прозрачный с розовой рамкой */
+.login-btn {
+  border: 2px solid #e91e63;
+  color: #e91e63;
+  background: transparent;
+}
+
+.login-btn:hover {
+  background: #e91e63;
+  color: white;
+}
+
+/* Sign Up — заливка */
+.signup-btn {
+  background: #e91e63;
+  color: white !important;
+  border: 2px solid #e91e63;
+}
+
+
+.signup-btn:hover {
+  background: #c2185b;
+  border-color: #c2185b;
+}
