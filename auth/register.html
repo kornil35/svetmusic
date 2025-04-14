@@ -14,8 +14,24 @@
     <h2>Create Account</h2>
     <form id="registerForm">
       <input type="text" name="username" placeholder="Nickname" required />
+      
       <input type="email" name="email" placeholder="Email" required />
       <input type="password" name="password" placeholder="Password" required />
+      <div class="field-hint" id="passwordHint" style="display: none;">Only Latin characters are allowed in password</div>
+
+      <div class="password-strength">
+        <div class="strength-bar">
+          <div class="strength-fill" id="strengthFill"></div>
+        </div>
+        
+        <div class="strength-label" id="strengthLabel"> </div>
+      </div>
+      
+      <button type="button" id="googleLogin" class="google-btn">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" alt="Google" width="20" style="vertical-align: middle; margin-right: 8px;">
+        Continue with Google
+      </button>
+      
       <button type="submit">Register</button>
     </form>
     <div class="link">
@@ -25,6 +41,7 @@
 
   <script type="module" src="/auth/auth.js"></script>
 
-  
+  <div class="toast-container" id="toastContainer"></div>
+
 </body>
 </html>
